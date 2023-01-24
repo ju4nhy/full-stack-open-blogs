@@ -26,9 +26,9 @@ jobs:
           node-version: '16'
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: npm install backend
-        run: npm install
+        run: rm -rf node_modules/ && npm install
       - name: npm install frontend
-        run: cd client && npm install
+        run: cd client && rm -rf node_modules/ && npm install
       - name: lint
         run: npm run lint
       - name: build
