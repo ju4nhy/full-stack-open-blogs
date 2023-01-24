@@ -1,0 +1,45 @@
+name: Blogs Deployment Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches: [main]
+    types: [opened, synchronize]
+
+env:
+  TEST_MONGODB_URI: ${{ secrets.TEST_MONGODB_URI }}
+  PORT: ${{ secrets.PORT }}
+  MONGODB_URI: ${{ secrets.MONGODB_URI }}
+  SECRET: ${{ secrets.SECRET }}
+  FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+
+jobs:
+  deployment_pipeline:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+      - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: npm install backend
+        run: npm install
+      - name: npm install frontend
+        run: cd client && npm install
+      - name: lint
+        run: npm run lint
+      - name: build
+        run: npm run build
+      - name: test
+        run: npm run test
+      - name: test 2
+        run: cd client && npm run test
+      - name: e2e tests
+        uses: cypress-io/github-action@v2
+        with:
+          command: npm run test:e2e
+          start: npm run start:test
+          wait-on: http://localhost:3003
