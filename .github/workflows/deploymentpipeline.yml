@@ -43,7 +43,6 @@ jobs:
           command: npm run test:e2e
           start: npm run start:test
           wait-on: http://localhost:3003
-      - name: deploy 
-        uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: deploy
         if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
         run: flyctl deploy --remote-only
