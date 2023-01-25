@@ -27,6 +27,8 @@ jobs:
         with:
           node-version: '16.13.0'
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: check node version
+        run: command -v node
       - name: npm install backend
         run: npm install
       - name: npm install frontend
