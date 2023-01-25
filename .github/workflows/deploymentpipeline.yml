@@ -21,6 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: node version 
+        run: echo "export PATH=$PATH:/c/Program\ Files/nodejs" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
           node-version: '16.13.0'
