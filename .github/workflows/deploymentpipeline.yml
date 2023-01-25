@@ -26,6 +26,9 @@ jobs:
         with:
           node-version: '16.13.0'
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Check Node Version
+        run: |
+          which node
       - name: Set up Node.js
         run: |
           echo "export PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
