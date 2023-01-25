@@ -17,9 +17,12 @@ env:
 
 jobs:
   deployment_pipeline:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
+      - run: echo "export PATH=$PATH:/c/Program\ Files/nodejs" >> $GITHUB_ENV
+      - run: echo "which node" >> $GITHUB_ENV
+      - run: echo "node -v" >> $GITHUB_ENV
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: actions/setup-node@v3
         with:
