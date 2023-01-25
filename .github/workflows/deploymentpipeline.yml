@@ -21,8 +21,8 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: echo "export PATH=$PATH:/c/Program\ Files/nodejs" >> $GITHUB_ENV
-      - run: echo "which node" >> $GITHUB_ENV
-      - run: echo "node -v" >> $GITHUB_ENV
+      - run: command -v node
+      - run: node -v
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: actions/setup-node@v3
         with:
