@@ -27,8 +27,7 @@ jobs:
           node-version: '16.13.0'
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Set environment variables
-        run: |
-          echo "::set-env name=PATH::$PATH:/opt/hostedtoolcache/node/16.13.0/x64/bin"
+        run: echo "::set-env name=PATH::$PATH:/usr/local/bin"
       - name: Add Node.js to PATH
         run: echo "export PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
       - name: check node version
