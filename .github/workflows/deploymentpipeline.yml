@@ -26,13 +26,11 @@ jobs:
           node-version: '16.13.0'
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: chatgpt advice
-        run: echo "export PATH=$PATH:/opt/hostedtoolcache/node/16.13.0/x64/bin" >> $GITHUB_ENV
+        run: echo "export PATH=$PATH:/c/Program\ Files/nodejs/node" >> $GITHUB_ENV
       - name: check node version
         run: node -v
       - name: check npm version
         run: npm -v
-      - name: set node as executable
-        run: chmod +x /usr/local/bin/node
       - name: npm install backend
         run: npm ci --unsafe-perm
       - name: npm install frontend
