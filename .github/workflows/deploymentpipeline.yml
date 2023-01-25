@@ -21,7 +21,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - name: node version 
+      - name: node path add 
         run: echo "export PATH=$PATH:/c/Program\ Files/nodejs" >> $GITHUB_ENV
       - uses: actions/setup-node@v3
         with:
@@ -29,6 +29,8 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: check node version
         run: command -v node
+      - name: check node version again
+        run: node -v
       - name: npm install backend
         run: npm install
       - name: npm install frontend
