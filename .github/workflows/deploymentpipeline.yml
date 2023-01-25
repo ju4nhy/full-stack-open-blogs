@@ -26,7 +26,7 @@ jobs:
         run: |
           which node
       - name: Set permissions for node executable
-        run: chmod 755 /usr/local/bin/node
+        run: sudo chmod 755 /usr/local/bin/node
       - uses: actions/setup-node@v3
         with:
           node-version: '16.13.0'
