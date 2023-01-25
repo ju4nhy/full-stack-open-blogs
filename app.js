@@ -1,6 +1,6 @@
 const config = require('./utils/config')
 const express = require('express')
-require('express-async-errors') // No need to try/catch after this
+require('express-async-errors') // No need to try/catch after
 const app = express()
 const cors = require('cors')
 const usersRouter = require('./controllers/users')
