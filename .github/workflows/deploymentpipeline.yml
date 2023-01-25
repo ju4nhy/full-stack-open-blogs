@@ -23,8 +23,10 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '16.13.0'
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: chatgpt advice
+        run: echo "export PATH=$PATH:/opt/hostedtoolcache/node/16.13.0/x64/bin" >> $GITHUB_ENV
       - name: npm install backend
         run: npm install
       - name: npm install frontend
