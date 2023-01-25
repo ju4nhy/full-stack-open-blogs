@@ -25,6 +25,10 @@ jobs:
         with:
           node-version: '16'
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: node version check
+        run: command -v node
+      - name: node version check 2
+        run: node -v
       - name: npm install backend
         run: npm install
       - name: npm install frontend
@@ -43,3 +47,5 @@ jobs:
           command: npm run test:e2e
           start: npm run start:test
           wait-on: http://localhost:3003
+      - name: deploy
+        run: flyctl deploy --remote-only
