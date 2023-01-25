@@ -24,6 +24,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
+      - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: npm install backend
         run: npm install
       - name: npm install frontend
