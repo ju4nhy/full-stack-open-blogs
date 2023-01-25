@@ -20,9 +20,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-      - run: echo "export PATH=$PATH:/c/Program\ Files/nodejs" >> $GITHUB_ENV
-      - run: command -v node
-      - run: node -v
+      - run: which node
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - uses: actions/setup-node@v3
         with:
