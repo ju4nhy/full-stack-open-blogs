@@ -31,6 +31,6 @@ COPY --from=builder /app /app
 
 WORKDIR /app
 ENV NODE_ENV production
-ENV PATH /root/.volta/bin:/root/.volta/packages/node/16.13.0/bin:$PATH
+ENV PATH /root/.volta/bin:$PATH
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "start-dev" ]
