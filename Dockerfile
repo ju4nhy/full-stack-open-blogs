@@ -7,6 +7,7 @@ RUN curl https://get.volta.sh | bash
 ENV VOLTA_HOME /root/.volta
 ENV PATH /root/.volta/bin:$PATH
 RUN volta install node@${NODE_VERSION}
+ENV PATH /root/.volta/bin:/root/.volta/packages/node/16.13.0/bin:$PATH
 
 #######################################################################
 
@@ -21,7 +22,7 @@ ENV NODE_ENV production
 
 COPY . .
 
-RUN npm install --production=false && npm run build
+RUN npm install --production=false --unsafe-perm && npm run build
 FROM debian:bullseye
 
 LABEL fly_launch_runtime="nodejs"
