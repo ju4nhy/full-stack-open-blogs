@@ -32,9 +32,9 @@ jobs:
       - name: check npm version
         run: npm -v
       - name: npm install backend
-        run: npm install --unsafe-perm
+        run: npm ci --unsafe-perm
       - name: npm install frontend
-        run: cd client && npm install --unsafe-perm
+        run: cd client && npm ci --unsafe-perm
       - name: lint
         run: npm run lint
       - name: build
