@@ -5,7 +5,7 @@ ARG NODE_VERSION=16.13.0
 RUN apt-get update; apt install -y curl python-is-python3 pkg-config build-essential
 RUN curl https://get.volta.sh | bash
 ENV VOLTA_HOME /root/.volta
-ENV PATH /root/.volta/bin:/root/.volta/packages/node/16.13.0/bin:$PATH
+ENV PATH /root/.volta/bin:$PATH
 RUN volta install node@${NODE_VERSION}
 
 #######################################################################
@@ -31,6 +31,6 @@ COPY --from=builder /app /app
 
 WORKDIR /app
 ENV NODE_ENV production
-ENV PATH /root/.volta/bin:$PATH
+ENV PATH /root/.volta/bin:/root/.volta/packages/node/16.13.0/bin:$PATH
 
 CMD [ "npm", "run", "start" ]
