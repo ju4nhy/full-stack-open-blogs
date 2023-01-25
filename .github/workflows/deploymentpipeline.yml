@@ -14,6 +14,7 @@ env:
   MONGODB_URI: ${{ secrets.MONGODB_URI }}
   SECRET: ${{ secrets.SECRET }}
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+  PATH: ${{ env.PATH }}:/usr/local/bin
 
 jobs:
   deployment_pipeline:
@@ -25,9 +26,8 @@ jobs:
         with:
           node-version: '16.13.0'
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - name: Set up Node.js
-        run: |
-          echo "::set-env name=PATH::$PATH:/usr/local/bin"
+      - name: Add Node.js to PATH
+        run: echo "export PATH=$PATH:/usr/local/bin" >> $GITHUB_ENV
       - name: check node version
         run: node -v
       - name: check npm version
