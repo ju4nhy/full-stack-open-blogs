@@ -32,6 +32,8 @@ jobs:
         run: ls -l /usr/bin/env
       - name: check path
         run: echo $PATH
+      - name: check WHOAMI
+        run: whoami
       - name: check node version
         run: node -v
       - name: check npm version
@@ -40,10 +42,6 @@ jobs:
         run: npm ci --unsafe-perm
       - name: npm install frontend
         run: cd client && npm ci --unsafe-perm
-      - name: Check client folder content
-        run: cd client && ls -al
-      - name: Check client folder content 2
-        run: cd client && cd node_modules && ls -al
       - name: lint
         run: npm run lint
       - name: build
