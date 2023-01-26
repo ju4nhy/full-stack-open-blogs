@@ -23,6 +23,8 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Update PATH
         run: echo "export PATH=$PATH:/usr/local/bin/" >> $GITHUB_ENV
+      - name: Check permissions of container
+        run: ls -l /usr/bin/env
       - name: Check Which Node
         run: |
           which node
