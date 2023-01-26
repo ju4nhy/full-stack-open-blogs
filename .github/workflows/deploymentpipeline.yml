@@ -42,8 +42,8 @@ jobs:
         run: npm ci --unsafe-perm
       - name: npm install frontend
         run: cd client && npm ci --unsafe-perm
-      - name: Check client folder content
-        run: ls -al /app/client
+      - name: Check react-scripts 
+        run: test -e /app/client/node_modules/.bin/react-scripts && echo "File exists" || echo "File does not exist"
       - name: lint
         run: npm run lint
       - name: build
