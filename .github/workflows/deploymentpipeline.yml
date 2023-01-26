@@ -31,6 +31,8 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: check path
         run: echo $PATH
+      - name: check path 2
+        run: echo "::add-path::${{ steps.setup-node.outputs.node-path }}"
       - name: check node version
         run: node -v
       - name: check npm version
