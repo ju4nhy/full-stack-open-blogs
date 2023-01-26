@@ -23,10 +23,6 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Update PATH
         run: echo "export PATH=$PATH:/usr/local/bin/" >> $GITHUB_ENV
-      - name: Check path and file
-        run: |
-          test -e /app/client/node_modules/.bin/react-scripts && echo "File exists" || echo "File does not exist"
-          ls -la /app/client/node_modules/.bin/
       - name: Check Which Node
         run: |
           which node
@@ -46,6 +42,10 @@ jobs:
         run: npm ci --unsafe-perm
       - name: npm install frontend
         run: cd client && npm ci --unsafe-perm
+      - name: Check path and file
+        run: |
+          test -e /app/client/node_modules/.bin/react-scripts && echo "File exists" || echo "File does not exist"
+          ls -la /app/client/node_modules/.bin/
       - name: lint
         run: npm run lint
       - name: build
