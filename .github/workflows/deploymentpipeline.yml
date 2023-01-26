@@ -28,7 +28,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16.18.0'
-      - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: check node version
         run: node -v
       - name: check npm version
@@ -52,4 +51,5 @@ jobs:
           start: npm run start:test
           wait-on: http://localhost:3003
       - name: deploy
+        uses: superfly/flyctl-actions/setup-flyctl@master
         run: flyctl deploy --remote-only
