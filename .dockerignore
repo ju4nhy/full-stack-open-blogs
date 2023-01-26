@@ -1,6 +1,8 @@
 Dockerfile
 .dockerignore
+node_modules
 .git
 fly.toml
+build
 
 .env
