@@ -23,6 +23,10 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Update PATH
         run: echo "export PATH=$PATH:/usr/local/bin/" >> $GITHUB_ENV
+      - name: Check path and file
+        run: |
+        test -e /app/client/node_modules/.bin/react-scripts && echo "File exists" || echo "File does not exist"
+        ls -la /app/client/node_modules/.bin/
       - name: Check Which Node
         run: |
           which node
