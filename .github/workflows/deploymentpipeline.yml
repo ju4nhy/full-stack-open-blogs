@@ -43,7 +43,7 @@ jobs:
       - name: npm install frontend
         run: cd client && npm ci --unsafe-perm
       - name: Check react-scripts 
-        run: ls -al
+        run: test -e /client/node_modules/.bin/react-scripts && echo "File exists" || echo "File does not exist"
       - name: lint
         run: npm run lint
       - name: build
