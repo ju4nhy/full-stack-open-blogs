@@ -15,7 +15,7 @@ kill_timeout = 5
   auto_rollback = true
 
 [processes]
-  app = "npm run start:prod"
+  app = "node index.js"
 
 [[services]]
   http_checks = []
