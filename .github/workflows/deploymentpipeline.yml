@@ -51,5 +51,4 @@ jobs:
           start: npm run start:test
           wait-on: http://localhost:3003
       - name: deploy
-        uses: superfly/flyctl-actions/setup-flyctl@master
         run: flyctl deploy --remote-only
