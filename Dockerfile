@@ -34,4 +34,4 @@ ENV NODE_ENV production
 ENV PATH /root/.volta/bin:$PATH
 RUN apt-get update; apt install -y curl
 
-CMD [ "npm", "run", "start-dev" ]
+CMD [ "npm", "run", "start" ]
