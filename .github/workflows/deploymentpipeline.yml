@@ -26,7 +26,7 @@ jobs:
           which node
       - uses: actions/setup-node@v3
         with:
-          node-version: '16'
+          node-version: '16.13.0'
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Check permissions of containers
         run: ls -l /usr/bin/env
