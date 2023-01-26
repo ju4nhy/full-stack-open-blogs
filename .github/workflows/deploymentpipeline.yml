@@ -32,8 +32,6 @@ jobs:
         run: ls -l /usr/bin/env
       - name: check path
         run: echo $PATH
-      - name: Update PATH environment variable
-        run: echo "::set-env name=PATH::/usr/local/bin:$PATH"
       - name: check node version
         run: node -v
       - name: check npm version
