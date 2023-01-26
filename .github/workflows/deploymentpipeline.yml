@@ -43,7 +43,7 @@ jobs:
       - name: npm install frontend
         run: cd client && npm ci --unsafe-perm
       - name: Check react-scripts 
-        run: ls
+        run: ls -al
       - name: lint
         run: npm run lint
       - name: build
