@@ -21,11 +21,9 @@ ENV NODE_ENV production
 
 COPY . .
 
-RUN echo "Current working directory: $(pwd)"
-RUN echo "Contents of /app/client/node_modules/.bin/:"
-RUN ls -al /app/client/node_modules/.bin/
-
 RUN npm install --production=false --unsafe-perm && npm run build
+RUN npm config set unsafe-perm true
+
 FROM debian:bullseye
 
 LABEL fly_launch_runtime="nodejs"
@@ -35,7 +33,7 @@ COPY --from=builder /app /app
 
 WORKDIR /app
 ENV NODE_ENV production
-ENV PATH /usr/local/bin:/root/.volta/bin:$PATH
+ENV PATH /root/.volta/bin:$PATH
 RUN apt-get update; apt install -y curl
 
 CMD [ "npm", "run", "start" ]
