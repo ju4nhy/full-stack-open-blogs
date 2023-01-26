@@ -25,19 +25,25 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Check Which Node
+        run: |
+          which node
       - uses: actions/setup-node@v3
         with:
           node-version: '16.18.0'
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: Check permissions of containers
+        run: ls -l /usr/bin/env
+      - name: check path
+        run: echo $PATH
       - name: check node version
         run: node -v
       - name: check npm version
         run: npm -v
-
       - name: npm install backend
-        run: npm install
+        run: npm ci --unsafe-perm
       - name: npm install frontend
-        run: cd client && npm install
+        run: cd client && npm ci --unsafe-perm
       - name: lint
         run: npm run lint
       - name: build
@@ -52,10 +58,6 @@ jobs:
           command: npm run test:e2e
           start: npm run start:test
           wait-on: http://localhost:3003
-  fly_deployment:
-    needs: [deployment_pipeline]
-    runs-on: ubuntu-20.04
-    steps:
-      - uses: actions/checkout@v3
-      - uses: superfly/flyctl-actions/setup-flyctl@master
-      - run: flyctl deploy --remote-only
+       - name: deploy
+        run: flyctl deploy --remote-only
+
