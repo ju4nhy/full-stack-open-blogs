@@ -27,7 +27,7 @@ jobs:
         run: |
           which node
       - name: Set permissions for node executable
-        run: sudo chmod +x /opt/hostedtoolcache/node/16.13.0/x64/bin/node
+        run: chmod +x /usr/local/bin/node
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
