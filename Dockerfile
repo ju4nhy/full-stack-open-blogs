@@ -22,7 +22,7 @@ ENV NODE_ENV production
 COPY . .
 
 RUN npm install --production=false --unsafe-perm && npm run build
-RUN npm config set unsafe-perm true
+RUN cd client && npm install
 
 FROM debian:bullseye
 
