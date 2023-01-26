@@ -33,8 +33,6 @@ jobs:
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Check permissions of container
         run: ls -l /usr/bin/env
-      - name: Check permissions of container
-        run: ls -l $PATH
       - name: check path
         run: echo $PATH
       - name: check node version
