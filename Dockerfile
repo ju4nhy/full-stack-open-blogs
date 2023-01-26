@@ -21,6 +21,10 @@ ENV NODE_ENV production
 
 COPY . .
 
+RUN echo "Current working directory: $(pwd)"
+RUN echo "Contents of /app/client/node_modules/.bin/:"
+RUN ls -al /app/client/node_modules/.bin/
+
 RUN npm install --production=false --unsafe-perm && npm run build
 FROM debian:bullseye
 
