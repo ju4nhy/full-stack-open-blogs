@@ -14,7 +14,8 @@ env:
   MONGODB_URI: ${{ secrets.MONGODB_URI }}
   SECRET: ${{ secrets.SECRET }}
   FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-  NODE_PATH: /usr/local/bin
+  RUNNER_OS: Linux
+  RUNNER_TOOL_CACHE: /opt/hostedtoolcache
 
 jobs:
   deployment_pipeline:
