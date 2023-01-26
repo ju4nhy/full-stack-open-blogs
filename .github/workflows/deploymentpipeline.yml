@@ -21,8 +21,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - name: Set Node.js path
-        run: export PATH=$PATH:/usr/local/bin/node
+      - name: Update PATH
+        run: echo "::set-env name=PATH::$PATH:/usr/local/bin/node"
+        env:
+          PATH: ${{ env.PATH }}:/usr/local/bin/node
       - name: Check Which Node
         run: |
           which node
