@@ -4,9 +4,6 @@ app = "blogs-juanhy"
 kill_signal = "SIGINT"
 kill_timeout = 5
 
-[deploy]
-  release_command = "npm run build"
-
 [env]
   PORT = "8080"
 
@@ -14,8 +11,7 @@ kill_timeout = 5
   allowed_public_ports = []
   auto_rollback = true
 
-[processes]
-  app = "npm run start:prod"
+processes = []
 
 [[services]]
   http_checks = []
