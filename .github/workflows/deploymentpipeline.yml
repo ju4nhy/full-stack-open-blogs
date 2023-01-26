@@ -29,6 +29,8 @@ jobs:
           node-version: '16'
           path: /usr/local/bin/
       - uses: superfly/flyctl-actions/setup-flyctl@master
+      - name: check path
+        run: echo $PATH
       - name: check node version
         run: node -v
       - name: check npm version
