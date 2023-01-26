@@ -3,3 +3,4 @@ Dockerfile
 node_modules
 .git
 fly.toml
+/client/node_modules

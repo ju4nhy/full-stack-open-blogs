@@ -29,7 +29,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '16'
-          path: /usr/local/bin/
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: Check permissions of container
         run: ls -l /usr/bin/env
