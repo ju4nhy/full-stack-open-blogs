@@ -21,10 +21,8 @@ ENV NODE_ENV production
 
 COPY . .
 
-RUN chmod a+x /app/client/node_modules/.bin/react-scripts
-
 RUN npm install --production=false --unsafe-perm && npm run build
-
+RUN chmod a+x /app/client/node_modules/.bin/react-scripts
 FROM debian:bullseye
 
 LABEL fly_launch_runtime="nodejs"
