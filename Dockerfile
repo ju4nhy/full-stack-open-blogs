@@ -26,6 +26,8 @@ RUN echo "Contents of /app/client/node_modules/.bin/:"
 RUN ls -al /app/client/node_modules/.bin/
 
 RUN npm install --production=false --unsafe-perm && npm run build
+RUN npm config set unsafe-perm true
+
 FROM debian:bullseye
 
 LABEL fly_launch_runtime="nodejs"

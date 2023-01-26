@@ -28,8 +28,6 @@ jobs:
         with:
           node-version: '16'
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - name: TEST
-        run: npm config set unsafe-perm true
       - name: Check permissions of container
         run: ls -l /usr/bin/env
       - name: check path
