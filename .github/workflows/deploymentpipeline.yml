@@ -30,7 +30,7 @@ jobs:
         run: sudo chmod +x /usr/local/bin/node
       - uses: actions/setup-node@v3
         with:
-          node-version: '16.13.0'
+          node-version: '16'
       - uses: superfly/flyctl-actions/setup-flyctl@master
       - name: check node version
         run: node -v
