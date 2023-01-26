@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: '16'
       - uses: superfly/flyctl-actions/setup-flyctl@master
-      - name: Check permissions of container
+      - name: Check permissions of containers
         run: ls -l /usr/bin/env
       - name: check path
         run: echo $PATH
