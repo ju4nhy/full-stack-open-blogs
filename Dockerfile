@@ -21,7 +21,7 @@ ENV NODE_ENV production
 
 COPY . .
 
-RUN npm install --production=false && npm run build
+RUN npm install
 FROM debian:bullseye
 
 LABEL fly_launch_runtime="nodejs"
@@ -32,5 +32,6 @@ COPY --from=builder /app /app
 WORKDIR /app
 ENV NODE_ENV production
 ENV PATH /root/.volta/bin:$PATH
+RUN apt-get update; apt install -y curl
 
-CMD [ "npm", "run", "start" ]
+CMD [ "npm", "run", "start:prod" ]
