@@ -30,6 +30,14 @@ app.use('/api/blogs', blogRouter)
 app.use('/api/users', usersRouter)
 app.use('/api/login', loginRouter)
 
+app.get('/health', (req, res) => {
+  res.send('ok')
+})
+
+app.get('/version', (req, res) => {
+  res.send('1') // change this string to ensure a new version deployed
+})
+
 //if (process.env.NODE_ENV === 'test' || process.env.NODE_ENV === 'development') {
 const testingRouter = require('./controllers/testing')
 app.use('/api/testing', testingRouter)
