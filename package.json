@@ -1,6 +1,6 @@
 {
-  "engines": {
-    "node": "16.13.0"
+  "engines" : { 
+    "node" : "16.13.0" 
   },
   "name": "blogs",
   "version": "1.0.0",
@@ -8,7 +8,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=production node index.js",
-    "start-prod": "node index.js",
+    "start:prod": "node index.js",
     "start-dev": "cross-env NODE_ENV=development node index.js",
     "dev": "cross-env NODE_ENV=development nodemon index.js",
     "test": "cross-env NODE_ENV=test jest --verbose --runInBand",
