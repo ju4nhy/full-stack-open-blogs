@@ -40,8 +40,6 @@ app.use(middleware.unknownEndpoint)
 app.use(middleware.errorHandler)
 
 app.get('/health', (req, res) => {
-  throw 'error...'
-  // eslint-disable-next-line no-unreachable
   res.send('ok')
 })
 
