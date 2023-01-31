@@ -1,4 +1,4 @@
-/* Blog lists for testing purposes */
+/* Blog list for testing purposes */
 const initialBlogs = [
   {
     title: 'Testiblog A',
