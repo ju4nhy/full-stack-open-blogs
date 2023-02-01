@@ -53,6 +53,20 @@ jobs:
       - name: deploy
         if: ${{ github.event_name == 'push' && !contains(join(github.event.commits.*.message), '#skip') }}
         run: flyctl deploy --remote-only
+      - name: discord notify success
+        uses: rjstone/discord-webhook-notify@v1
+        if: ${{ success() }}
+        with:
+          severity: info
+          details: A new version of Blogs app deployed
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
+      - name: discord notify failure
+        uses: rjstone/discord-webhook-notify@v1
+        if: ${{ failure() }}
+        with:
+          severity: error
+          details: Build failed
+          webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag_release:
     needs: [deployment_pipeline]
     runs-on: ubuntu-20.04
